@@ -1,4 +1,8 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+
+<div class="banner">
+
+
   <h1>Hobby Buddy</h1>
   <h2>find a buddy to share your hobby with</h2>
 </div>
@@ -9,12 +13,14 @@
   display:flex;
   justify-content:center;
   color:white;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+
 }
+
+
 h1{margin-top:201px;
 text-decoration:underline;
 font-size:70px;
-
-
 }
 h2 {
   text-decoration:overline;
@@ -22,4 +28,196 @@ h2 {
 
   }
 
+  @media (max-width:767px){
+
+    .banner
+    {
+      background-image: url("https://res.cloudinary.com/erezfriemagor/image/upload/v1554295916/action-athlete-ball-342361.jpg");
+      background-size: 100% 100%;
+    }
+
+    h1
+    {
+      margin-left:50px;
+      font-size:30px;
+
+    }
+    h2
+    {
+
+       font-size:25px;
+
+    }
+
+  }
+
 </style>
+<script>
+
+$( document ).ready(function() {
+
+
+let current = 0;
+let  bigscreen = window.matchMedia("(min-width:1024px)");
+let  smallscreen = window.matchMedia("(max-width:700px)");
+
+
+function nextBackground() {
+
+
+   if (current == 0)
+    {
+
+     $('.banner').css('background-image','url(https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+     $("h1").css("color", "purple");
+     $("h2").css("color", "red")
+
+   }
+
+
+   else if (current ==1)
+    {
+
+     $('.banner').css('background-image','url(https://images.pexels.com/photos/848682/pexels-photo-848682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+     $("h2").css("color", "rgb(89, 66, 244)");
+     $("h1").css("color", "#f4e542");
+}
+
+ else if (current == 2)
+    {
+
+    $('.banner').css('background-image','url(https://images.pexels.com/photos/274262/pexels-photo-274262.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+    $("h1").css("color", "green");
+     $("h2").css("font-size", "60px");
+
+}
+
+ else if (current == 3)
+    {
+
+
+    $('.banner').css('background-image','url(https://images.pexels.com/photos/416760/pexels-photo-416760.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+    $("h1").css("color", "rgb(206, 66, 244)");
+     $("h1").css("font-size", "80px");
+
+}
+
+
+ else if (current == 4)
+    {
+
+
+    $('.banner').css('background-image','url(https://images.pexels.com/photos/6758/wildernessculture-rei1440project-welltravelled-awesomeearth.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+     $("h1").css("font-size", "65px");
+     $("h2").css("color", "#f4e542");
+
+}
+
+
+
+else
+{
+
+   $('.banner').css('background-image','url(https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+   $("h1").css("color", "blue");
+   $("h2").css("color","#42f46e");
+   $("h2").css("font-size", "40px");
+  current = -1;
+}
+
+current ++;
+
+
+}
+
+
+function nextBackgroundsmall() {
+
+
+   if (current == 0)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1554295916/action-athlete-ball-342361.jpg)');
+     $("h1").css("color", "purple");
+     $("h1").css("font-size","25px");
+     $("h2").css("color", "red");
+     $("h1").css("font-size","30px");
+
+
+   }
+
+
+   else if (current ==1)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1554295916/board-game-boss-business-1040157.jpg)');
+     $("h2").css("color", "rgb(89, 66, 244)");
+     $("h1").css("color", "#f4e542");
+}
+
+ else if (current == 2)
+    {
+
+    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1554297161/action-adult-adventure-804574.jpg)');
+    $("h1").css("color", "green");
+
+}
+
+ else if (current == 3)
+    {
+
+
+    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1554295915/activity-bunker-club-274262.jpg)');
+    $("h1").css("color", "rgb(206, 66, 244)");
+
+}
+
+
+ else if (current == 4)
+    {
+
+
+    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1554295915/adventure-cliff-daylight-6758.jpg)');
+
+}
+
+
+
+else
+{
+
+   $('.banner').css('background-image','url(https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
+   $("h1").css("color", "blue");
+   $("h2").css("color","#42f46e");
+   $("h2").css("font-size", "40px");
+  current = -1;
+}
+
+current ++;
+
+
+}
+
+
+
+
+
+
+
+
+ if (bigscreen.matches) {
+   setInterval(function(){nextBackground();},5000);
+
+}
+
+ if (smallscreen.matches) {
+   setInterval(function(){nextBackgroundsmall();},5000);
+
+}
+
+
+
+  });
+
+
+</script>

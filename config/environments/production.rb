@@ -83,6 +83,31 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+config.action_mailer.perform_caching = false
+  #
+config.action_mailer.perform_deliveries = true
+
+
+  config.action_mailer.default_url_options =
+      { :host => 'https://findahobbybuddy.herokuapp.com' }  #if it is local then 'localhost:3000'
+
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'findahobbybuddy.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'momsandads@gmail.com',
+      :password             => 'Newblue29',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+  }
+# Send email in development mode?
+config.action_mailer.perform_deliveries = true
+
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
