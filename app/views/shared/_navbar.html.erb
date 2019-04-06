@@ -20,6 +20,10 @@
       <% if  current_user.has_profile == nil%>
         <li class="nav-item">
           <%= link_to "Create profile",new_buddy_path,class: "nav-link" %>
+          <%else%>
+         <li class="nav-item">
+          <%= link_to "Your profile",buddy_path(Buddie.where(user_id:current_user.id)),class: "nav-link" %>
+
       <% end %>
 
       <% else %>

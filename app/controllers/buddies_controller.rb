@@ -24,6 +24,9 @@ class BuddiesController < ApplicationController
         redirect_to root_path
       end
     end
+    def show
+      @buddie = Buddie.where(user_id:current_user.id)
+    end
 
     private
 
@@ -37,3 +40,4 @@ class BuddiesController < ApplicationController
 
 
   end
+
