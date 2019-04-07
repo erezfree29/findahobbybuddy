@@ -17,7 +17,7 @@ class BuddiesController < ApplicationController
         @user = current_user
         @buddie = Buddie.new(buddie_params)
         @buddie.user_id = @user.id
-        @buddie.address = @buddie.town
+        @buddie.address = @buddie.countryname + " " + @buddie.town + " " +  @buddie.neighborhood
       end
 
       if @buddie.save
@@ -34,7 +34,7 @@ class BuddiesController < ApplicationController
     def buddie_params
 
 
-      params.require(:buddie).permit(:name, :age,:hobby,:hobby_description,:countryname,:neighborhood,:town)
+      params.require(:buddie).permit(:name, :age,:hobby,:hobby_description,:countryname,:neighborhood,:town,:photo,:level)
 
     end
 

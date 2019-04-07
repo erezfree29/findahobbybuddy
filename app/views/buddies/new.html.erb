@@ -10,12 +10,17 @@
    <%= f.input :hobby,label: false%>
    <div class="input">tell us about your hobby</div>
    <%= f.text_area :hobby_description,label: false,size: "40x5" %>
+   <div class="input">your level</div>
+   <%= f.select :level, [,professional,intermidate,begginer,not sure/haven't played for while"%>
    <div class="input" >country</div>
    <%= f.collection_select(:countryname, Countrie.all, :name, :name) %>
    <div class="input">*city/town</div>
    <%= f.input :town,:label => false %>
    <div class="input">neighborhood</div>
    <%= f.input :neighborhood,:label => false %>
+   <div class="input photo">upload a photo</div>
+   <%= f.input :photo,:label => false %>
+   <%= f.input :photo_cache, as: :hidden %>
    <div><%= f.button :submit,'submit', class: "btn-success training_btn"%><% end %>
 
    </div>
