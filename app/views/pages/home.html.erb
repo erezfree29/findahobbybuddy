@@ -1,7 +1,8 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
-
 <div class="banner">
-
+<p style="margin-left:200px;">
+  <%= flash[:success] unless flash[:success].blank?%>
+</p>
 
   <h1>Hobby Buddy</h1>
   <h2>find a buddy to share your hobby with</h2>
