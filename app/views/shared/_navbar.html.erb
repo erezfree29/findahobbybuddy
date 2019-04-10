@@ -17,15 +17,15 @@
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
+      <%if current_user.email_confirmed == true%>
       <% if  current_user.has_profile == nil%>
         <li class="nav-item">
           <%= link_to "Create profile",new_buddy_path,class: "nav-link" %>
           <%else%>
          <li class="nav-item">
           <%= link_to "Your profile",buddy_path(Buddie.where(user_id:current_user.id)),class: "nav-link" %>
-
       <% end %>
-
+    <% end %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

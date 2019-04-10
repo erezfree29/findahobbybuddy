@@ -1,8 +1,9 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
 <div class="banner">
-<p style="margin-left:200px;">
-  <%= flash[:success] unless flash[:success].blank?%>
-</p>
+ <%if current_user.email_confirmed == nil%>
+<p style="margin-left:200px;"><%=link_to "http://www.#{current_user.email.split('@').last}" do%> <strong>please activate your account</strong><%end%></p>
+
+ <%end%>
 
   <h1>Hobby Buddy</h1>
   <h2>find a buddy to share your hobby with</h2>
@@ -17,6 +18,7 @@
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 
 }
+
 
 
 h1{margin-top:201px;
@@ -35,11 +37,12 @@ h2 {
     {
       background-image: url("https://res.cloudinary.com/erezfriemagor/image/upload/v1554295916/action-athlete-ball-342361.jpg");
       background-size: 100% 100%;
+      background-clip: border-box;
     }
 
     h1
     {
-      margin-left:50px;
+      position:absolute;
       font-size:30px;
 
     }
@@ -47,6 +50,9 @@ h2 {
     {
 
        font-size:25px;
+       position:absolute;
+       top: 302px;
+       left: 100px;
 
     }
 
@@ -198,12 +204,6 @@ current ++;
 
 
 }
-
-
-
-
-
-
 
 
  if (bigscreen.matches) {

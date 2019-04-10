@@ -1,0 +1,53 @@
+<div class="banner">
+  <%if @buddie[0].photo.length > 2%>
+   <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
+  rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie[0].photo}"%>);">
+   </div>
+   <%elsif @buddie[0].gender == "male" %>%
+   <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
+  rgba(0,0,0,.35)),url(http://winkeyecare.com/wp-content/uploads/2013/03/Empty-Profile-Picture-450x450.jpg);">
+   </div>
+   <%else%>
+   <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
+  rgba(0,0,0,.35)),url(https://www.alitumbas.av.tr/uploads/empty-profile-picture-woman.jpg);">
+   </div>
+  <%end%>
+  <h2>Name: <%=@buddie[0].name%></h2>
+   <h2>Age: <%=@buddie[0].age%></h2>
+   <h2>Gender: <%=@buddie[0].gender%></h2>
+   <h2>Hobby: <%=@buddie[0].hobby%></h2>
+    <h2><%=@buddie[0].hobby%></h2>
+   <h2>Address: <%=@buddie[0].address%></h2>
+
+</div>
+<style>
+ .banner
+{
+  height:100vh;
+  justify-content:center;
+  color:white;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/1389098/pexels-photo-1389098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  margin-top:-7px;
+
+}
+.photo
+{
+  width:150px;
+  height:200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  top:100px;
+  right:100px;
+
+}
+
+</style>
+
+
+
+
+
+
+

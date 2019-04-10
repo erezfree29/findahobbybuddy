@@ -36,6 +36,10 @@ class BuddiesController < ApplicationController
        if @buddie.town == ""
         flash[:town] = "please enter your town"
        end
+       if @buddie.gender == ""
+        flash[:town] = "please enter your gender"
+       end
+
 
 
          flash[:faill] = "profile was not created"
@@ -46,7 +50,10 @@ class BuddiesController < ApplicationController
     end
     end
     def show
+
       @buddie = Buddie.where(user_id:current_user.id)
+
+
     end
 
     private
@@ -54,7 +61,7 @@ class BuddiesController < ApplicationController
     def buddie_params
 
 
-      params.require(:buddie).permit(:name,:age,:hobby,:hobby_description,:countryname,:neighborhood,:town,:photo,:level)
+      params.require(:buddie).permit(:name,:age,:hobby,:hobby_description,:countryname,:neighborhood,:town,:photo,:level,:gender)
 
     end
 

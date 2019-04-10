@@ -12,12 +12,17 @@
   <%if flash[:town].blank? == false%>
   <%=flash[:town]%><br>
   <%end%>
+   <%if flash[:town].blank? == false%>
+  <%=flash[:town]%>
+  <%end%>
 </p>
 
   <div class="create_profile">
    <%= simple_form_for Buddie.new do |f| %>
    <div class="input">name</div>
    <%= f.input :name,label: false%>
+   <div class="input">*gender</div>
+   <%= f.select :gender, [['male'],['female']]%>
    <div class="input">*age</div>
    <%= f.select :age, [['20-25'],['25-30'],['31-35'],['36-40'],['41-45'],['46-50'],['51-60'],['61-70'],['70+']]%>
    <div class="input">*what is your hobby</div>
@@ -62,6 +67,7 @@
 #flash{color:red;}
   .banner
 {
+  margin-top:-17px;
   height:100vh;
   justify-content:center;
   color:white;
