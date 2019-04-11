@@ -3,10 +3,9 @@ class BuddiesController < ApplicationController
   end
   def new
     if user_signed_in?
-      current_user.update(has_profile:true)
       @user = current_user
       @buddie = Buddie.new()
-      @buddie.user_id = @user.id
+
     end
   end
 
@@ -53,6 +52,10 @@ class BuddiesController < ApplicationController
 
       @buddie = Buddie.where(user_id:current_user.id)
 
+
+    end
+
+    def show_other_buddie
 
     end
 

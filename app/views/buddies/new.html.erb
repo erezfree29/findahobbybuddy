@@ -20,21 +20,21 @@
   <div class="create_profile">
    <%= simple_form_for Buddie.new do |f| %>
    <div class="input">name</div>
-   <%= f.input :name,label: false%>
+   <%= f.input :name,label: false,maxlength: 15%>
    <div class="input">*gender</div>
    <%= f.select :gender, [['male'],['female']]%>
    <div class="input">*age</div>
    <%= f.select :age, [['20-25'],['25-30'],['31-35'],['36-40'],['41-45'],['46-50'],['51-60'],['61-70'],['70+']]%>
    <div class="input">*what is your hobby</div>
-   <%= f.input :hobby,label: false%>
+   <%= f.input :hobby,label: false,maxlength: 20%>
    <div class="input">tell us about your hobby</div>
-   <%= f.text_area :hobby_description,label: false,size: "40x5" %>
+   <%= f.text_area :hobby_description,label: false,size: "40x5",maxlength: 200 %>
    <div class="input" >*country</div>
-   <%= f.collection_select(:countryname, Countrie.all, :name, :name) %>
+   <%= f.collection_select(:countryname, Countrie.all, :name, :name,maxlength: 40) %>
    <div class="input">*city/town</div>
-   <%= f.input :town,:label => false %>
+   <%= f.input :town,:label => false ,maxlength: 30%>
    <div class="input">neighborhood</div>
-   <%= f.input :neighborhood,:label => false %>
+   <%= f.input :neighborhood,:label => false,maxlength: 30%>
    <div class="input">*your level</div>
     <%= f.select :level, [['begginer'],['intemidiate'],['professional'],["not sure/haven't played for a while" ]]%>
    <div class="input photo">upload a photo</div>

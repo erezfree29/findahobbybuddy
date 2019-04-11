@@ -1,8 +1,9 @@
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
 <div class="banner">
+<% if user_signed_in? %>
  <%if current_user.email_confirmed == nil%>
 <p style="margin-left:200px;"><%=link_to "http://www.#{current_user.email.split('@').last}" do%> <strong>please activate your account</strong><%end%></p>
-
+ <%end%>
  <%end%>
 
   <h1>Hobby Buddy</h1>

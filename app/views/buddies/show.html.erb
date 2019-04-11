@@ -3,7 +3,7 @@
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
   rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie[0].photo}"%>);">
    </div>
-   <%elsif @buddie[0].gender == "male" %>%
+   <%elsif @buddie[0].gender == "male" %>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
   rgba(0,0,0,.35)),url(http://winkeyecare.com/wp-content/uploads/2013/03/Empty-Profile-Picture-450x450.jpg);">
    </div>
@@ -12,17 +12,43 @@
   rgba(0,0,0,.35)),url(https://www.alitumbas.av.tr/uploads/empty-profile-picture-woman.jpg);">
    </div>
   <%end%>
-  <h2>Name: <%=@buddie[0].name%></h2>
-   <h2>Age: <%=@buddie[0].age%></h2>
-   <h2>Gender: <%=@buddie[0].gender%></h2>
-   <h2>Hobby: <%=@buddie[0].hobby%></h2>
-    <h2><%=@buddie[0].hobby%></h2>
-   <h2>Address: <%=@buddie[0].address%></h2>
+  <div id="heading_box">
+    <table>
+    <tr><th></th><th></th></tr>
+   <tr><td><h2 class="info">Name:</h2></td><td><div class="attribute"><%=@buddie[0].name%></div></td></tr>
+    <tr><td><h2 class="info">Age:</h2></td><td><div class="attribute"><%=@buddie[0].age%></div></td></tr>
+    <tr><td><h2 class="info">Hobby:</h2></td><td><div class="attribute"><%=@buddie[0].hobby%></div></td></tr>
+    </table>
+  </div>
+   <p id="hobby_description"><%=@buddie[0].hobby_description%></p>
 
-</div>
+      <% if user_signed_in?%>
+          <% if (current_user.has_profile == true)%>
+
+          <%if @buddie[0].user_id == current_user.id%>
+             <%= link_to "send a message", new_buddy_message_path(@buddie[0]), class: "btn btn-primary"%>
+             <%else%>
+              <%= link_to "my messages", buddy_messages_path(@buddie[0]), class: "btn btn-primary"%>
+            <%end%>
+
+          <%end%>
+        <%end%>
+  </div>
+
+
+
 <style>
+  .btn-primary{margin-left:15px;}
+  table{margin-left:30px;}
+  .attribute{font-size:20px;padding-left:10px;}
+  #hobby_description{width:1200px;margin-left:20px;margin-top:50px;font-size:20px;}
+  .info{font-weight:bold;padding-left:20px;}
+ #heading_box{width:auto;margin-left:30px;border:solid;margin-top:87px;max-width: 300px;}
+ .line{padding-left:20px;}
  .banner
 {
+  position:absolute;
+  width:100vw;
   height:100vh;
   justify-content:center;
   color:white;
@@ -32,15 +58,20 @@
 }
 .photo
 {
-  width:150px;
+  width:230px;
   height:200px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position:absolute;
-  top:100px;
+  top:50px;
   right:100px;
 
+}
+@media (max-width:767px){
+#heading_box{margin-top:18px;margin-left:13px;}
+#hobby_description{margin-top:200px; width:280px;}
+.photo{top:192px;right:50px;}
 }
 
 </style>
@@ -49,5 +80,6 @@
 
 
 
+1
 
 
