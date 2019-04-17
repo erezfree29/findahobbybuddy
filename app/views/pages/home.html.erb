@@ -2,7 +2,7 @@
 <div class="banner">
 <% if user_signed_in? %>
  <%if current_user.email_confirmed == nil%>
-<p style="margin-left:200px;"><%=link_to "http://www.#{current_user.email.split('@').last}" do%> <strong>please activate your account</strong><%end%></p>
+<p style="margin-left:200px;margin-top:20px;"><%=link_to "http://www.#{current_user.email.split('@').last}" do%> <strong>please activate your account</strong><%end%></p>
  <%end%>
  <%end%>
 

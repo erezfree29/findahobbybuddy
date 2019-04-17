@@ -59,6 +59,10 @@ class BuddiesController < ApplicationController
 
     end
 
+    def index
+      @buddies = Buddie.all
+    end
+
     private
 
     def buddie_params
