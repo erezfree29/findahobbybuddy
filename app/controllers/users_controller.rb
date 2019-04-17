@@ -10,7 +10,6 @@ class UsersController < ApplicationController
  def edit
    @user = current_user
    @token = params[:token]
-
    if @token == @user.confirm_token
 
     @user.email_confirmed = true

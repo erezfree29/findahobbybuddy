@@ -1,42 +1,4 @@
-<div id="forgot_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1538324512/kids-girl-pencil-drawing-159823.jpg');">
-<h1>enter your token to complete registration</h1>
-
- <%= simple_form_for current_user do |u| %>
- <%= u.input :confirm_token,:label => false%>
- <%= u.button :submit,'submit', class: "btn-success training_btn"%>
-<% end %>
-
+<div>
+  edit
 </div>
 
-
-<script>
-
-   let confirm_token = document.getElementById("user_confirm_token");
-   confirm_token.value = ""
-
-</script>
-<style>
-h1
-{
-  margin-left:10px;
-}
-#forgot_banner
-{
-
-  height:100vh;
-  width:100vw;
-  margin-top:-24px;
-}
-
-.form-actions
-{
-  margin-left:10px;
-}
-input.body {
-  width:50%;
-}
-.form-group{width:508px;
-margin-left:10px;}
-.training_btn{margin-left:10px;}
-
-</style>
