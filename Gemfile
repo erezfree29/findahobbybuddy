@@ -6,9 +6,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
+gem "railties", ">= 5.2.1"
 gem 'redis'
 gem 'geocoder'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'jquery-rails'
