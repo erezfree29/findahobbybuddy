@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  helpers:
+  will_paginate:
+      page_entries_info:
+        multi_page: "Displaying"
+        multi_page_html: "Displaying <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> of buddies"
+

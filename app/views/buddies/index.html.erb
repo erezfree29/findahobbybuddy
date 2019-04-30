@@ -7,7 +7,7 @@
     <%flag = 0%>
      <div class="row">
   <%@buddies.each do |buddie|%>
-
+    <%=link_to show_other_buddie_buddy_path(buddie) do%>
       <div class="col-xs-6 col-md-4 col-lg-2">
            <%flag +=1%>
            <div class="card" id="card<%=flag%>" name="<%=buddie.name%>"style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(<%=cl_image_path "#{buddie.photo}"%>); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center;background-size: 100% 100%;">
@@ -16,20 +16,31 @@
 
 
         </div>
-        <div class="new">
-
-        </div>
       </div>
-
-
   <%end%>
+<%end%>
   </div>
  </div>
+   <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @buddies %>
+    </div>
+    <%= will_paginate @buddies, :container => false %>
+  </div>
+  <%if flash[:success].blank? == false%>
+        <div id="confirmation"><%=flash[:success]  %></div>
+        <%end%>
 </div>
 <style>
+  #confirmation{margin-top:10px;}
+  .digg_pagination {
+    position:absolute;
+    top: 720px;
+    left: 533px;
+}
 
-  p{position:absolute;top:100px;}
-  .container{position:absolute;top:450px;left:650px;}
+  p{position:absolute;top:100px;font-size:40px;}
+  .container{position:absolute;top:295px;left:54px;}
 
 
   .banner
@@ -70,6 +81,7 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
 
    $( document ).ready(function() {
 
+
      $( ".card" ).hover(function() {
       var contentToRemove = document.querySelectorAll("p");
       $(contentToRemove).remove();
@@ -83,13 +95,22 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
       just_hobby =  just_hobby.split('>')[1];
 
     }
+      let temp_for_age = full_info.split('ge">')[1];
+      let just_age = temp_for_age.split('<')[0];
+      if (just_age.includes(">")){
+      just_age = just_age.split('>')[1];
+      }
       let p = document.createElement("p");
-      let line_break = document.createElement("br")
+      let line_break = document.createElement("br");
+      let line_break2= document.createElement("br");
       p.append("Name: ");
       p.append(just_name);
       p.append(line_break);
       p.append("Hobby: ")
       p.append(just_hobby);
+      p.append(line_break2);
+      p.append("Age:");
+      p.append(just_age);
       $(".container").after(p);
 
 
@@ -97,17 +118,7 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
 });
 
 
-
-
-
-
    });
 
 </script>
 
-
-
-<!--
-
-just_hobby =  just_hobby.substring(5);
-      just_hobby = just_hobby.substr(0, just_hobby.length-1); -->

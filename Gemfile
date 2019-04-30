@@ -19,6 +19,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 
 group :development do

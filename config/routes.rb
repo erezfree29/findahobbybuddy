@@ -16,4 +16,5 @@ end
 
     end
   end
+  resources :messages
 end

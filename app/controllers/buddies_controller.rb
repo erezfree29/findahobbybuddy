@@ -1,4 +1,5 @@
 class BuddiesController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
   end
   def new
@@ -21,8 +22,8 @@ class BuddiesController < ApplicationController
 
       if @buddie.save
 
-        redirect_to root_path
         flash[:success] = "You have created a profile successfully"
+        redirect_to root_path(flash[:success])
 
      else
        if @buddie.name == ""
@@ -57,11 +58,16 @@ class BuddiesController < ApplicationController
 
     def show_other_buddie
 
+       @buddie = Buddie.find(params[:id])
+
+
     end
 
     def index
-      @buddies = Buddie.all
+      @buddies = Buddie.paginate(page: params[:page],per_page: 12)
+
     end
+
 
     private
 

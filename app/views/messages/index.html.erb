@@ -1,0 +1,71 @@
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1545252788/pexels-photo-235554.jpg');">
+<h2>received messages</h2>
+<table style="width:100%">
+<tr>
+    <th>From</th>
+    <th></th>
+   <th>Received</th>
+  </tr>
+<%@buddie_received_messages.each do |m|%>
+ <tr>
+    <td><%= link_to buddy_path(m[:sending_buddie_id]) do %><%=Buddie.find(m[:sending_buddie_id]).name%></td><%end%>
+    <td> <%= link_to buddy_path(m[:sending_buddie_id]) do %>
+     <div class="trainershowcircle" style="background-image: url(<%=Buddie.find(m[:sending_buddie_id]).photo%>)"></div><%end%>
+
+   </td>
+
+    <td> <%= link_to buddie_message_path(m[:receving_buddie_id]) do %>
+      <%=m.date%> <%=m.time.hour%>:<%=m.time.min%></td><%end%>
+   </tr>
+ <%end%>
+ <tr>
+  <td><h2>sent messages</h2></td>
+</tr>
+<!-- </table>
+<table style="width:100%"> -->
+<tr>
+    <th>To</th>
+    <th></th>
+    <th>Sent</th>
+  </tr>
+<%@buddie_sent_messages.each do |m|%>
+ <tr>
+    <td><%= link_to buddy_path(m[:receving_buddie_id]) do %><%=Buddie.find(m[:receving_buddie_id]).name%></td><%end%>
+    <td> <%= link_to buddy_path(m[:receving_buddie_id]) do %>
+     <div class="trainershowcircle" style="background-image: url(<%=Buddie.find(m[:receving_buddie_id]).photo%>)"></div><%end%>
+
+   </td>
+
+    <td> <%= link_to buddy_message_path(m[:receving_buddie_id],m[:id]) do %>
+      <%=m.date%> <%=m.time.hour%>:<%=m.time.min%></td><%end%>
+   </tr>
+ <%end%>
+</table>
+
+</div>
+
+<style>
+.index_banner{margin-top:-22px;}
+ .trainershowcircle {
+     position: relative;
+     border-radius: 49.99%;
+     width: 100px;
+     height: 100px;
+     background-size: cover;
+     border: solid 1px white;
+     box-shadow: 3px 3px 3px 3px;
+   }
+   .index_banner{height:100vh;}
+   table{color:white;}
+   h2{color:green;margin-top:26px;}
+}
+</style>
+<script>
+
+</script>

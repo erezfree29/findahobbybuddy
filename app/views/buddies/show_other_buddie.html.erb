@@ -1,10 +1,10 @@
 <div class="banner">
 
-  <%if @buddie[0].photo.length != nil%>
+  <%if @buddie.photo.length != nil%>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
-  rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie[0].photo}"%>);">
+  rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie.photo}"%>);">
    </div>
-   <%elsif @buddie[0].gender == "male" %>
+   <%elsif @buddie.gender == "male" %>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
   rgba(0,0,0,.35)),url(http://winkeyecare.com/wp-content/uploads/2013/03/Empty-Profile-Picture-450x450.jpg);">
    </div>
@@ -16,20 +16,20 @@
   <div id="heading_box">
     <table>
     <tr><th></th><th></th></tr>
-   <tr><td><h2 class="info">Name:</h2></td><td><div class="attribute"><%=@buddie[0].name%></div></td></tr>
-    <tr><td><h2 class="info">Age:</h2></td><td><div class="attribute"><%=@buddie[0].age%></div></td></tr>
-    <tr><td><h2 class="info">Hobby:</h2></td><td><div class="attribute"><%=@buddie[0].hobby%></div></td></tr>
+   <tr><td><h2 class="info">Name:</h2></td><td><div class="attribute"><%=@buddie.name%></div></td></tr>
+    <tr><td><h2 class="info">Age:</h2></td><td><div class="attribute"><%=@buddie.age%></div></td></tr>
+    <tr><td><h2 class="info">Hobby:</h2></td><td><div class="attribute"><%=@buddie.hobby%></div></td></tr>
     </table>
   </div>
-   <p id="hobby_description"><%=@buddie[0].hobby_description%></p>
+   <p id="hobby_description"><%=@buddie.hobby_description%></p>
 
       <% if user_signed_in?%>
           <% if (current_user.has_profile == true)%>
 
-          <%if @buddie[0].user_id != current_user.id%>
-             <%= link_to "send a message", new_buddy_message_path(@buddie[0]), class: "btn btn-primary"%>
+          <%if @buddie.user_id != current_user.id%>
+             <%= link_to "send a message", new_buddy_message_path(@buddie), class: "btn btn-primary"%>
              <%else%>
-              <%= link_to "my messages", buddy_messages_path(@buddie[0]), class: "btn btn-primary"%>
+              <%= link_to "my messages", buddy_messages_path(@buddie), class: "btn btn-primary"%>
             <%end%>
 
           <%end%>
