@@ -20,15 +20,23 @@
 
    </td>
 
-    <td> <%= link_to buddie_message_path(m[:receving_buddie_id]) do %>
+    <td> <%= link_to buddy_message_path(m[:receving_buddie_id],m.id) do %>
       <%=m.date%> <%=m.time.hour%>:<%=m.time.min%></td><%end%>
    </tr>
  <%end%>
+
+ <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @buddie_received_messages %>
+    </div>
+    <%= will_paginate @buddie_received_messages, :container => false %>
+  </div>
+
+
+
  <tr>
   <td><h2>sent messages</h2></td>
 </tr>
-<!-- </table>
-<table style="width:100%"> -->
 <tr>
     <th>To</th>
     <th></th>
@@ -46,7 +54,16 @@
       <%=m.date%> <%=m.time.hour%>:<%=m.time.min%></td><%end%>
    </tr>
  <%end%>
+
 </table>
+
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @buddie_sent_messages %>
+    </div>
+    <%= will_paginate @buddie_sent_messages, :container => false %>
+  </div>
+
 
 </div>
 

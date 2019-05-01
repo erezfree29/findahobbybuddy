@@ -10,8 +10,13 @@
     <%=link_to show_other_buddie_buddy_path(buddie) do%>
       <div class="col-xs-6 col-md-4 col-lg-2">
            <%flag +=1%>
-           <div class="card" id="card<%=flag%>" name="<%=buddie.name%>"style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(<%=cl_image_path "#{buddie.photo}"%>); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center;background-size: 100% 100%;">
-
+           <% if buddie.photo.blank? == false%>
+             <div class="card" id="card<%=flag%>" name="<%=buddie.name%>"style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(<%=cl_image_path "#{buddie.photo}"%>); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center;background-size: 100% 100%;">
+          <%elsif buddie.gender == "male"%>
+          <div class="card" id="card<%=flag%>" name="<%=buddie.name%>"style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(http://winkeyecare.com/wp-content/uploads/2013/03/Empty-Profile-Picture-450x450.jpg); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center;background-size: 100% 100%;">
+            <%else%>
+               <div class="card" id="card<%=flag%>" name="<%=buddie.name%>"style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(https://www.alitumbas.av.tr/uploads/empty-profile-picture-woman.jpg); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center;background-size: 100% 100%;">
+              <%end%>
                <div id="name"><%=buddie.name%></div><div id="hobby"><%=buddie.hobby%></div><div id="gender"><%=buddie.gender%></div><div id="age"><%=buddie.age%></div><div id="level"><%=buddie.level%></div>
 
 
@@ -21,12 +26,12 @@
 <%end%>
   </div>
  </div>
-   <div class="digg_pagination">
-    <div class="page_info">
-      <%= page_entries_info @buddies %>
-    </div>
-    <%= will_paginate @buddies, :container => false %>
-  </div>
+
+
+
+
+
+
   <%if flash[:success].blank? == false%>
         <div id="confirmation"><%=flash[:success]  %></div>
         <%end%>

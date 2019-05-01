@@ -1,6 +1,5 @@
 <div class="banner">
-
-  <%if @buddie[0].photo.length != nil%>
+  <%if @buddie[0][:photo] != nil%>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
   rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie[0].photo}"%>);">
    </div>
@@ -34,6 +33,7 @@
 
           <%end%>
         <%end%>
+
   </div>
 
 

@@ -1,3 +1,4 @@
+
 class MessagesController < ApplicationController
 def new
    @message = Message.new()
@@ -58,7 +59,16 @@ def new
 
   end
 
+@buddie_sent_messages = @buddie_sent_messages.paginate(page: params[:page],per_page: 5)
+@buddie_received_messages = @buddie_received_messages.paginate(page: params[:page],per_page: 5)
+
+
  end
+
+ def show
+  @message = Message.find(params[:id])
+end
+
 
  private
 
