@@ -2,7 +2,6 @@
   <%if @buddie[:photo] != nil%>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
   rgba(0,0,0,.35)),url(<%=cl_image_path "#{@buddie.photo}"%>);">
-  <div>goood</div>
    </div>
    <%elsif @buddie.gender == "male" %>
    <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,.35),
