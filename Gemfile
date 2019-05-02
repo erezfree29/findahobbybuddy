@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
 gem 'will_paginate', '~> 3.1.0'
+gem 'pg_search'
+gem 'graticule', '~> 2.7', '>= 2.7.2'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

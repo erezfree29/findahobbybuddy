@@ -82,6 +82,10 @@ GEM
     geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graticule (2.7.2)
+      activesupport
+      i18n
+      nokogiri-happymapper (>= 0.5.9)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -117,8 +121,13 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    nokogiri-happymapper (0.8.1)
+      nokogiri (~> 1.5)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    pg_search (2.1.7)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -231,10 +240,12 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
   geocoder
+  graticule (~> 2.7, >= 2.7.2)
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
   pg (~> 0.21)
+  pg_search
   pry-byebug
   pry-rails
   puma

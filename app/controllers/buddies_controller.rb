@@ -1,4 +1,5 @@
 class BuddiesController < ApplicationController
+
   skip_before_action :authenticate_user!
   def index
   end
@@ -64,7 +65,20 @@ class BuddiesController < ApplicationController
     end
 
     def index
+      if (params[:town].blank? == false)
+      address = params[:country] + " " + params[:town]
+     end
+      location = Geocoder.coordinates(address)
+      if ((params[:town].present?) || (params[:gender].present?) || (params[:age].present?) || (params[:hobby].present?) )
+        query = params[:town] + " " + params[:gender] + " " + params[:age] + " " + params[:hobby]
+        if location != nil
+        @buddies  = Buddie.multy_search(query).paginate(page: params[:page],per_page: 12).near(location,params[:distance].to_i + 10)
+        else
+        @buddies  = Buddie.multy_search(query).paginate(page: params[:page],per_page: 12)
+        end
+      else
       @buddies = Buddie.paginate(page: params[:page],per_page: 12)
+    end
 
     end
 
@@ -81,3 +95,4 @@ class BuddiesController < ApplicationController
   end
 
 
+# .where("age = ? AND town LIKE ?","#{params[:age]}","%#{params[:town]}%").
