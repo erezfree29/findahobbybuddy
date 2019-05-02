@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
-
+gem 'will_paginate', '~> 3.1.0'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -19,7 +19,6 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 
 group :development do
@@ -34,3 +33,6 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+
+
