@@ -1,6 +1,6 @@
 
 class MessagesController < ApplicationController
-require 'will_paginate'
+require 'will_paginate/array'
 def new
    @message = Message.new()
    @first_value = params.values()[2]
