@@ -20,13 +20,12 @@
   <%= select_tag(:age, options_for_select([['18-25'],['26-30'],['31-35'],['36-40'],['41-45'],['46-50'],['51-60'],['61-70'],['70+']] ,params[:age]))%>
   <div class="input">*gender</div>
   <%= select_tag(:gender, options_for_select([['male'],['female']] ,params[:gender]))%>
-  <%= submit_tag "Search", name: nil,id: "submit" %>
+  <%= submit_tag "Search", name: nil%>
   <% end %>
-
-
     <%flag = 0%>
 <div class="container">
-  <div class="row all_buddies">
+  <div><%=link_to 'show all' ,buddies_path,class:"btn-success"%></div>
+   <div class="row all_buddies">
   <%@buddies.each do |buddie|%>
   <div class="col-lg-2 col-md-6 col-6">
 
@@ -49,8 +48,6 @@
       </div>
   </div>
 </div>
-
-
  <div class="digg_pagination">
     <div class="page_info">
       <%= page_entries_info @buddies %>
@@ -66,6 +63,8 @@
  </div>
 </div>
 <style>
+  .btn-success {padding:20px;width:100px;margin-top:3000px;border-radius:15px;background-color:#fbfafa;
+}
   .search{position: absolute;top: 278px;left: 10px;}
   #confirmation{margin-top:10px;}
   .digg_pagination {
@@ -114,9 +113,16 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
  @media (max-width:767px){
   .card{width: 44vw;
     margin-left: -56px;}
+  .container {top:505px;left: 49px;}
+  .digg_pagination {position: absolute;top: 2182px;left: 74px;
+}
+.banner
+{
+  height:2400px;
+}
 
 }
-.container{top:181px;}
+
 
 @media only screen and (max-width: 1200px) and (min-width: 767px)  {
  .card{width:35vw;margin-left:-16px;height:230px;}
@@ -133,7 +139,7 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
       var contentToRemove = document.querySelectorAll("p");
       $(contentToRemove).remove();
       let full_info = $(this).html();
-      let temp_for_name = full_info.substr(32);
+      let temp_for_name = full_info.substr(31);
       let temp_for_hobby = full_info.substr(56);
       let just_name = temp_for_name.split('<')[0];
       let just_hobby = temp_for_hobby.split('<')[0];
@@ -164,8 +170,46 @@ table{width:500px;margin-left:20px;position:absolute;top:200px;border-spacing:0 
 
 });
 
+    function makebannersmaller() {
+
+      let  smallscreen = window.matchMedia("(max-width:700px)");
+      let num = 0
+      $( ".card" ).each(function() {
+       num += 1;
+
+      });
+
+      if (smallscreen.matches) {
+       if (num < 3){
+          $(".banner").css("height","1000px");
+          $(".digg_pagination").css("top","1000px");
+          $(".container").css("top","500px");
+       }
+      else if (num < 7){
+          $(".banner").css("height","1500px");
+          $(".digg_pagination").css("top","1500px");
+          $(".container").css("top","650px");
+       }
+
+
+      }
+
+     }
+
+    makebannersmaller();
+
 
    });
 
 </script>
 
+
+
+
+<!-- if (smallscreen.matches) {
+        if (num < 7) {
+          alert("good");
+          $(.banner).css("height","800px");
+        }
+
+      } -->
